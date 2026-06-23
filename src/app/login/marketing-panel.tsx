@@ -8,12 +8,12 @@ const features = [
 
 export default function MarketingPanel() {
   return (
-    <div className="relative flex min-h-[420px] flex-col bg-gradient-to-b from-blue-500 to-blue-700 px-8 py-10 text-white lg:min-h-screen lg:px-12 lg:py-12">
+    <div className="relative flex min-h-[420px] flex-col bg-gradient-to-b from-green-900 to-green-600 px-8 py-10 text-white lg:min-h-screen lg:px-12 lg:py-12">
       <div className="flex items-center gap-3">
         <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white">
           <ShoppingBasket className="h-5 w-5 text-emerald-700" strokeWidth={2.5} />
         </div>
-        <span className="text-lg font-bold tracking-wide">SUPPY-MATRIX</span>
+        <span className="text-lg font-bold tracking-wide">SUPPLY-MATRIX</span>
       </div>
 
       <div className="mt-12 flex flex-1 flex-col justify-center lg:mt-0">
@@ -45,7 +45,7 @@ export default function MarketingPanel() {
         <div className="mt-4 flex items-center gap-3">
           <div className="h-10 w-10 shrink-0 rounded-full bg-white/20" />
           <div>
-            <p className="text-sm font-semibold">Sopheak Nhem</p>
+            <p className="text-sm font-semibold">Kun Nuvath</p>
             <p className="text-xs text-blue-100">Head Chef, Malis Restaurant</p>
           </div>
         </div>

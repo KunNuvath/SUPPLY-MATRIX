@@ -2,25 +2,47 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #16241c;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  /* Brand palette */
+  --color-brand-dark: #103821;
+  --color-brand: #1b7a43;
+  --color-brand-mid: #1f8a4c;
+  --color-brand-light: #e8f6ec;
+  --color-brand-mint: #eff8f1;
+
+  --color-accent: #ea6a2e;
+  --color-accent-dark: #d85a22;
+  --color-accent-light: #fdeae0;
+
+  --color-ink: #16241c;
+
+  /* Signature card shadows */
+  --shadow-card: 0 1px 2px rgba(16, 56, 33, 0.06), 0 1px 8px rgba(16, 56, 33, 0.06);
+  --shadow-card-hover: 0 8px 24px rgba(16, 56, 33, 0.12);
+
+  --radius-xl2: 1.1rem;
+
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto,
+    "Helvetica Neue", Arial, sans-serif;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
 }
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
