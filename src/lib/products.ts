@@ -10,6 +10,9 @@ export type Product = {
   badge?: { label: string; tone: "discount" | "new" };
   stock: "In Stock" | "Low Stock";
   bundle?: string;
+  category: string;
+  certifications?: ("organic" | "halal" | "freerange" | "nongmo")[];
+  origin: string;
 };
 
 export const products: Product[] = [
@@ -25,6 +28,9 @@ export const products: Product[] = [
     tag: { label: "Organic", tone: "organic" },
     badge: { label: "-15%", tone: "discount" },
     stock: "In Stock",
+    category: "vegetables",
+    certifications: ["organic"],
+    origin: "Kandal",
   },
   {
     id: "river-prawns",
@@ -37,11 +43,14 @@ export const products: Product[] = [
     badge: { label: "NEW", tone: "new" },
     stock: "Low Stock",
     bundle: "3 for $24",
+    category: "meat-seafood",
+    certifications: [],
+    origin: "Kampot",
   },
   {
     id: "kampong-rice",
-    name: "Kampot Kampong Chhang Rice",
-    supplier: "Rice Kingdom · 5kg bag",
+    name: "Kampong Chhang Jasmine Rice",
+    supplier: "Rice Kingdom · 5 kg bag",
     image:
       "https://images.unsplash.com/photo-1586201375761-83865001e31c?w=500&q=80",
     price: 6.2,
@@ -50,6 +59,9 @@ export const products: Product[] = [
     tag: { label: "Organic", tone: "organic" },
     badge: { label: "-10%", tone: "discount" },
     stock: "In Stock",
+    category: "dry-goods",
+    certifications: ["organic"],
+    origin: "Kampong Chhang",
   },
   {
     id: "robusta-beans",
@@ -61,6 +73,9 @@ export const products: Product[] = [
     priceKhr: 30750,
     badge: { label: "NEW", tone: "new" },
     stock: "In Stock",
+    category: "beverages",
+    certifications: ["organic"],
+    origin: "Mondulkiri",
   },
   {
     id: "free-range-eggs",
@@ -72,7 +87,10 @@ export const products: Product[] = [
     priceKhr: 13120,
     tag: { label: "Free-Range", tone: "freerange" },
     stock: "In Stock",
-    bundle: "2 trays for $5.80",
+    bundle: "2 trays for $5.00",
+    category: "dairy-eggs",
+    certifications: ["freerange"],
+    origin: "Takeo",
   },
   {
     id: "pad-thai-set",
@@ -86,6 +104,9 @@ export const products: Product[] = [
     tag: { label: "Halal", tone: "halal" },
     badge: { label: "-20%", tone: "discount" },
     stock: "In Stock",
+    category: "dry-goods",
+    certifications: ["halal"],
+    origin: "Phnom Penh",
   },
   {
     id: "baby-spinach",
@@ -97,18 +118,84 @@ export const products: Product[] = [
     priceKhr: 7380,
     tag: { label: "Organic", tone: "organic" },
     stock: "In Stock",
+    category: "vegetables",
+    certifications: ["organic"],
+    origin: "Kandal",
   },
   {
     id: "fish-sauce",
     name: "Fish Sauce Premium",
     supplier: "Kampot Gold · 700ml bottle",
     image:
-      "https://images.unsplash.com/photo-1632765854612-9b02b6ec2b15?w=500&q=80",
-    price: 3.6,
-    oldPrice: 3.79,
+      "https://images.unsplash.com/photo-1471193945509-9ad0617afabf?w=500&q=80",
+    price: 3.8,
+    oldPrice: 3.99,
     priceKhr: 14760,
     badge: { label: "-5%", tone: "discount" },
     stock: "In Stock",
+    category: "condiments-sauces",
+    certifications: ["nongmo"],
+    origin: "Kampot",
+  },
+  {
+    id: "dragon-fruit",
+    name: "Fresh Dragon Fruit",
+    supplier: "Mekong Farms · 1kg",
+    image:
+      "https://images.unsplash.com/photo-1527324688151-0e627063f2b1?w=500&q=80",
+    price: 3.9,
+    priceKhr: 15990,
+    tag: { label: "Organic", tone: "organic" },
+    stock: "In Stock",
+    category: "fruits",
+    certifications: ["organic"],
+    origin: "Siem Reap",
+  },
+  {
+    id: "whole-milk",
+    name: "Whole Milk UHT",
+    supplier: "Angkor Dairy · 1L carton",
+    image:
+      "https://images.unsplash.com/photo-1563636619-e9143da7973b?w=500&q=80",
+    price: 2.2,
+    priceKhr: 9020,
+    tag: { label: "Halal", tone: "halal" },
+    stock: "In Stock",
+    bundle: "6 for $12",
+    category: "dairy-eggs",
+    certifications: ["halal"],
+    origin: "Phnom Penh",
+  },
+  {
+    id: "chicken-breast",
+    name: "Frozen Chicken Breast",
+    supplier: "Mekong Fresh · 1kg",
+    image:
+      "https://images.unsplash.com/photo-1604503468506-a8da13d82791?w=500&q=80",
+    price: 5.5,
+    oldPrice: 6.25,
+    priceKhr: 22550,
+    tag: { label: "Halal", tone: "halal" },
+    badge: { label: "-12%", tone: "discount" },
+    stock: "In Stock",
+    category: "frozen-foods",
+    certifications: ["halal"],
+    origin: "Battambang",
+  },
+  {
+    id: "black-pepper",
+    name: "Kampot Black Pepper",
+    supplier: "Kampot Gold · 100g",
+    image:
+      "https://images.unsplash.com/photo-1599940824399-b87987ceb72a?w=500&q=80",
+    price: 4.8,
+    priceKhr: 19680,
+    tag: { label: "Organic", tone: "organic" },
+    badge: { label: "NEW", tone: "new" },
+    stock: "Low Stock",
+    category: "condiments-sauces",
+    certifications: ["organic"],
+    origin: "Kampot",
   },
 ];
 
@@ -144,5 +231,21 @@ export const suppliers = [
     tags: ["Dry Goods", "Rice", "Organic"],
     rating: 4.7,
     reviews: 145,
+  },
+  {
+    name: "Happy Hen Farm",
+    type: "Poultry Farm",
+    location: "Takeo",
+    tags: ["Poultry", "Eggs"],
+    rating: 4.8,
+    reviews: 98,
+  },
+  {
+    name: "Kampot Gold",
+    type: "Spice & Condiments",
+    location: "Kampot",
+    tags: ["Spices", "Sauces", "Organic"],
+    rating: 4.9,
+    reviews: 156,
   },
 ];

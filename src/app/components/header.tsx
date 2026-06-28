@@ -1,8 +1,11 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Search, Heart, ShoppingCart, User, Leaf } from "lucide-react";
 
 const navLinks = [
-  { label: "Products", href: "#" },
+  { label: "Products", href: "/products" },
   { label: "Suppliers", href: "#" },
   { label: "Promotions", href: "#" },
   { label: "Orders", href: "#" },
@@ -10,6 +13,8 @@ const navLinks = [
 ];
 
 export default function Header() {
+  const pathname = usePathname();
+
   return (
     <header className="bg-white border-b border-black/5">
       <div className="mx-auto max-w-[1280px] px-4 sm:px-6 lg:px-8 py-3 flex items-center gap-6">
@@ -29,31 +34,39 @@ export default function Header() {
         </Link>
 
         {/* Search */}
-        <div className="hidden md:flex flex-1 max-w-xl">
+        <form action="/products" method="GET" className="hidden md:flex flex-1 max-w-xl">
           <div className="flex w-full items-center rounded-full border border-black/10 bg-gray-50 pl-4 pr-1 py-1.5 focus-within:ring-2 focus-within:ring-brand/30">
             <Search className="h-4 w-4 text-gray-400 shrink-0" />
             <input
               type="text"
+              name="search"
               placeholder="Search for products, brands, suppliers..."
               className="w-full bg-transparent px-2.5 text-sm outline-none placeholder:text-gray-400"
             />
-            <button className="shrink-0 rounded-full bg-brand px-4 py-1.5 text-sm font-medium text-white hover:bg-brand-mid transition-colors">
+            <button type="submit" className="shrink-0 rounded-full bg-brand px-4 py-1.5 text-sm font-medium text-white hover:bg-brand-mid transition-colors">
               Search
             </button>
           </div>
-        </div>
+        </form>
 
         {/* Nav */}
-        <nav className="hidden lg:flex items-center gap-6 text-sm font-medium text-ink/80 shrink-0">
-          {navLinks.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              className="hover:text-brand transition-colors"
-            >
-              {link.label}
-            </a>
-          ))}
+        <nav className="hidden lg:flex items-center gap-2 text-sm font-semibold shrink-0">
+          {navLinks.map((link) => {
+            const isActive = pathname === link.href;
+            return (
+              <Link
+                key={link.label}
+                href={link.href}
+                className={`px-4 py-1.5 rounded-full transition-colors ${
+                  isActive
+                    ? "bg-brand-mint text-brand"
+                    : "text-ink/80 hover:bg-gray-50 hover:text-brand"
+                }`}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
         </nav>
 
         {/* Icons */}
