@@ -12,6 +12,7 @@ import {
   Phone,
   UserPlus,
 } from "lucide-react";
+import Link from "next/link";
 
 export default function LoginForm() {
   const [showPassword, setShowPassword] = useState(false);
@@ -128,7 +129,9 @@ export default function LoginForm() {
                   />
                 ))}
               </div>
-              <span className="text-xs font-medium text-emerald-700">Strong</span>
+              <span className="text-xs font-medium text-emerald-700">
+                Strong
+              </span>
             </div>
           </div>
 
@@ -144,22 +147,28 @@ export default function LoginForm() {
                   : "border-gray-300 bg-white"
               }`}
             >
-              {keepSignedIn && <Check className="h-3 w-3 text-white" strokeWidth={3} />}
+              {keepSignedIn && (
+                <Check className="h-3 w-3 text-white" strokeWidth={3} />
+              )}
             </button>
             <span className="text-sm text-gray-700">Keep me signed in</span>
           </label>
 
-          <button
-            type="submit"
-            className="flex w-full items-center justify-center gap-2 rounded-lg bg-emerald-800 px-4 py-3 text-sm font-semibold text-white transition-colors hover:bg-emerald-900"
-          >
-            Sign In
+          <Link href="/home" className="flex items-center justify-center gap-2">
+            <button
+              type="submit"
+              className="flex w-full items-center justify-center gap-2 rounded-lg bg-emerald-800 px-4 py-3 text-sm font-semibold text-white transition-colors hover:bg-emerald-900"
+            >
+              Sign In
+            </button>
             <ArrowRight className="h-4 w-4" />
-          </button>
+          </Link>
         </form>
 
         <div className="mt-8">
-          <p className="text-center text-sm text-gray-500">New to SUPPY-MATRIX?</p>
+          <p className="text-center text-sm text-gray-500">
+            New to SUPPY-MATRIX?
+          </p>
           <button
             type="button"
             className="mt-3 flex w-full items-center justify-center gap-2 rounded-lg border border-gray-200 bg-white px-4 py-3 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-50"

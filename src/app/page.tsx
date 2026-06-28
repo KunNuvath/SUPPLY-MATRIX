@@ -1,5 +1,5 @@
-import { redirect } from "next/navigation";
+import SuppliersPage from "./suppliers-page";
 
 export default function Home() {
-  redirect("/login");
+  return <SuppliersPage />;
 }
