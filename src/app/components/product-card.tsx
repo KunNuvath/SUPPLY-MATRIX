@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Heart, Plus } from "lucide-react";
-import type { Product } from "../_data/products";
+import type { Product } from "@/lib/products";
 
 const tagStyles: Record<string, string> = {
   organic: "bg-emerald-50 text-emerald-700",
@@ -37,6 +37,8 @@ export default function ProductCard({ product }: { product: Product }) {
             className={`absolute top-2.5 left-2.5 rounded-md px-2 py-1 text-[11px] font-bold ${
               badge.tone === "discount"
                 ? "bg-accent text-white"
+                : badge.tone === "new"
+                ? "bg-brand text-white"
                 : "bg-ink text-white"
             }`}
           >
